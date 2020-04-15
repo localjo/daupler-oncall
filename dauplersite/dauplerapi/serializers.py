@@ -20,8 +20,8 @@ class AssignmentSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Assignment
-        depth = 0
-        fields = ('person_id', 'team_id', 'team_role', 'call_order', 'id', 'url',)
+        depth = 1
+        fields = ('person', 'person_id', 'team_id', 'team_role', 'call_order', 'id', 'url',)
 class TeamSerializer(serializers.HyperlinkedModelSerializer):
     members = AssignmentSerializer(source='assignment_set', many=True, read_only=True)
 
